@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source "$(dirname "$0")/core.sh"
+
+dot rust binary "$@"

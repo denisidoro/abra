@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source "$(dirname "$0")/core.sh"
+
+cd "$ABRA_HOME"
+
+log::note "dot code beautify..."
+find scripts -type f | xargs -I% dot code beautify % || true
+find tests -type f -iname '*.sh' | xargs -I% dot code beautify % || true
+
+echoerr
+log::note "dot rust fix..."
+dot rust fix

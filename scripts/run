@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+source "$(dirname "$0")/core.sh"
+
+PROJ_HOME="$ABRA_HOME" PROJ_NAME="abra" dot rust run "$@"

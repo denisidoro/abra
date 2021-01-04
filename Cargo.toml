@@ -1,0 +1,31 @@
+[package]
+name = "abra"
+version = "0.1.0"
+authors = ["Denis Isidoro <denis_isidoro@live.com>"]
+edition = "2018"
+description = "Easily share data between different terminal windows"
+homepage = "https://github.com/denisidoro/abra"
+documentation = "https://github.com/denisidoro/abra"
+repository = "https://github.com/denisidoro/abra"
+keywords = ["argument", "parser", "cli", "bash", "shell"]
+categories = ["command-line-utilities"]
+license = "Apache-2.0"
+
+[dependencies]
+nix = "0.10.0"
+clap = "3.0.0-beta.2"
+anyhow = "1.0.32"
+thiserror = "1.0.20"
+rand = "0.8.0"
+ctrlc = "3.1.7"
+stringreader= "0.1.1"
+fake-tty = "0.2.0"
+
+[lib]
+name = "abra"
+path = "src/lib.rs"
+
+[[bin]]
+name = "abra"
+path = "src/bin/main.rs"
+bench = false
