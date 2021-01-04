@@ -1,4 +1,4 @@
-# abra [![Actions Status](https://github.com/denisidoro/abra/workflows/Tests/badge.svg)](https://github.com/denisidoro/abra/actions) ![GitHub release](https://img.shields.io/github/v/release/denisidoro/abra?include_prereleases)
+# abra ![GitHub release](https://img.shields.io/github/v/release/denisidoro/abra?include_prereleases)
   
 A tool that makes data sharing between terminal windows easy.
 
@@ -22,12 +22,12 @@ Installation
 
 The recommended way to install **abra** is by running: 
 ```sh
-brew install denisidoro/tools/abra
+cargo install kadabra
 ```
 
 You can also run:
 ```sh
-cargo install kadabra
+brew install denisidoro/tools/abra
 ```
 
 If these package managers aren't available, you can download a pre-compiled binary [here](https://github.com/denisidoro/abra/releases/latest) and extract it to your `$PATH`.
