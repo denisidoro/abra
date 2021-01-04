@@ -27,7 +27,7 @@ brew install denisidoro/tools/abra
 
 You can also run:
 ```sh
-cargo install abra-cli
+cargo install kadabra
 ```
 
 If these package managers aren't available, you can download a pre-compiled binary [here](https://github.com/denisidoro/abra/releases/latest) and extract it to your `$PATH`.
