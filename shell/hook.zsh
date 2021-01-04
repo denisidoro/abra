@@ -1,9 +1,7 @@
 _abra_hook() {
-  echo foo
   trap -- '' SIGINT;
   abra tx --channel pwd --value "$PWD" &> /dev/null || true;
   trap - SIGINT;
-  echo bar
 }
 
 # typeset -ag precmd_functions;
