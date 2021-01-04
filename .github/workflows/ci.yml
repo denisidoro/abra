@@ -55,9 +55,6 @@ jobs:
         with:
           command: test
 
-      - name: Run bash tests
-        run: .bin/dot pkg add tmux && ./scripts/test
-
   lints:
     name: Lints
     runs-on: ubuntu-latest
