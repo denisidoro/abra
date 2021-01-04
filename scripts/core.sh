@@ -15,6 +15,8 @@ dot::install_if_necessary() {
 }
 
 export ABRA_HOME="${ABRA_HOME:-$(cd "$(dirname "$0")/.." && pwd)}"
+export PROJ_HOME="$ABRA_HOME"
+export PROJ_NAME="abra"
 
 dot::install_if_necessary
 source "${DOTFILES}/scripts/core/main.sh"
