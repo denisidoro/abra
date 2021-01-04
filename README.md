@@ -13,6 +13,7 @@ Table of contents
    * [Basic concepts](#basic-concepts)
    * [Common use cases](#common-use-cases)
    * [Advantages over named pipes](#advantages-over-named-pipes)
+   * [Forcing colorized output](#forcing-colorized-output)
    * [Similar tools](#similar-tools)
    * [Etymology](#etymology)
 
@@ -24,7 +25,12 @@ The recommended way to install **abra** is by running:
 brew install denisidoro/tools/abra
 ```
 
-If brew isn't available, you can download a pre-compiled binary [here](https://github.com/denisidoro/abra/releases/latest) and extract it to your `$PATH`.
+You can also run:
+```sh
+cargo install abra-cli
+```
+
+If these package managers aren't available, you can download a pre-compiled binary [here](https://github.com/denisidoro/abra/releases/latest) and extract it to your `$PATH`.
 
 Basic concepts
 -----------------
@@ -34,6 +40,8 @@ Basic concepts
 
 Common use cases
 -----------------
+
+Some **abra** calls are quite verbose, so the use of [aliases](https://github.com/denisidoro/abra/blob/master/shell/aliases.bash) is recommended. 
 
 ### File tree sidebar
 
@@ -50,8 +58,6 @@ Then you can open a new terminal window and call `abra rx --channel pwd --cmd 'l
 
 Whenever you `cd` into a directory, the sidebar will reflect the changes.
 
-Note: it's suggested to add a shell alias with the command above to save time.
-
 ### Split stdout and stderr into different windows
 
 Let's say that you want to run some tests but errors should appear in a different window.
@@ -67,36 +73,6 @@ abra rx --channel test_err # window 2
 cargo test > >(abra tx --channel test_out) 2> >(abra tx --channel test_err) # window 3
 ```
 
-This is quite verbose, so some aliases can help:
-<details><summary>aliases</summary>
-<p>
-```sh
-rxout() { 
-   abra rx --channel "${1}_out"   
-}
-
-rxerr() { 
-   abra rx --channel "${1}_err"   
-}
-
-txspl() { 
-   local -r  channel="$1"
-   abra rx --channel test_out # window 1
-   abra rx --channel test_err # window 2
-   "$@" >(abra tx --channel "${channel}_out") 2> >(abra tx --channel "${channel}_err") 
-}
-```
-
-Then you could call:
-```sh
-rxout test # window 1
-rxerr err # window 2
-txspl cargo test # window 3
-```
-
-</p>
-</details>
-
 ### Filter some output lines
 
 Let's say you want to see the contents of a file in a window but show only the lines that contain "foo" in another window:
@@ -105,6 +81,16 @@ Let's say you want to see the contents of a file in a window but show only the l
 abra rx --channel filter --cmd 'echo "{}" | grep foo' # window 1
 cat myfile.txt |& tee >(abra tx --channel filter) # window 2
 ```
+
+Forcing colorized output
+-------------
+
+Some CLIs will detect that they are being piped and will hide color information by default. 
+
+To circumvent this, each CLI may offer different paramenters: `--color=always` and `export COLORTERM=truecolor` are some examples.
+
+In some cases, you need to trick an application into thinking its stdout is a terminal, not a pipe. For these cases you can call `abra faketty --cmd '<your command>'`.
+
 
 Advantages over named pipes
 -------------
