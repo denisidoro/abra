@@ -87,7 +87,7 @@ Forcing colorized output
 
 Some CLIs will detect that they are being piped and will hide color information by default. 
 
-To circumvent this, each CLI may offer different paramenters: `--color=always` and `export COLORTERM=truecolor` are some examples.
+To circumvent this, each CLI may offer different parameters: `--color=always` and `export COLORTERM=truecolor` are some examples.
 
 In some cases, you need to trick an application into thinking its stdout is a terminal, not a pipe. For these cases you can call `abra faketty --cmd '<your command>'`.
 
