@@ -2,7 +2,9 @@
   
 A tool that makes data sharing between terminal windows easy.
 
-**abra** can be used for displaying info about the current working directory, for splitting stdout and stderr and much more.
+**abra** can be used for displaying info about the current working directory, for splitting stdout and stderr and much more. 
+
+In the example below, whenever I `cd` into a different folder, another terminal window lists the files inside it.
 
 ![File tree demo](https://user-images.githubusercontent.com/3226564/103572068-c2878400-4eaa-11eb-86e1-651748a2dcd5.gif)
 
