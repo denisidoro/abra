@@ -14,7 +14,7 @@ license = "Apache-2.0"
 [dependencies]
 nix = "0.10.0"
 clap = "3.0.0-beta.2"
-anyhow = "1.0.32"
+anyhow = "1.0.40"
 thiserror = "1.0.20"
 rand = "0.8.0"
 ctrlc = "3.1.7"
